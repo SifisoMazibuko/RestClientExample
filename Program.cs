@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using static System.Console;
 using System.Collections.Generic;
+using System.Net;
 
 namespace RestClientExample
 {
@@ -21,8 +22,8 @@ namespace RestClientExample
                 WriteLine(repo.GitHubHomeUrl);
                 WriteLine(repo.Homepage);
                 WriteLine(repo.Watchers);
+                WriteLine(repo.LastPush);
                 WriteLine();
-                ReadLine();
             }
 
         }
@@ -44,6 +45,13 @@ namespace RestClientExample
                 var repositories = serializer.ReadObject(await streamtask) as List<Repository>;
                 return repositories;
             }
+
+            /*using (var httpClient = new WebClient())
+            {
+                httpClient.Headers.Add(ReqConstant.UserAgent, ReqConstant.UserAgentValue);
+                var resp = httpClient.DownloadString(ReqConstant.BaseUrl);
+                return resp;
+            }*/
             
         }
     }
