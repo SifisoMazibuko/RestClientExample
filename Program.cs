@@ -17,6 +17,12 @@ namespace RestClientExample
             foreach (var repo in repositories)
             {
                 WriteLine(repo.Name);
+                WriteLine(repo.Description);
+                WriteLine(repo.GitHubHomeUrl);
+                WriteLine(repo.Homepage);
+                WriteLine(repo.Watchers);
+                WriteLine();
+                ReadLine();
             }
 
         }
