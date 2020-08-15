@@ -6,6 +6,8 @@ using System.Net.Http.Headers;
 using static System.Console;
 using System.Collections.Generic;
 using System.Net;
+using Flurl.Util;
+using ServiceStack;
 
 namespace RestClientExample
 {
@@ -52,7 +54,6 @@ namespace RestClientExample
                 var resp = httpClient.DownloadString(ReqConstant.BaseUrl);
                 return resp;
             }*/
-            
         }
     }
 }
