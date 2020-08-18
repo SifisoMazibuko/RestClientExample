@@ -13,7 +13,6 @@ namespace RestClientExample
 {
     public class Program
     {
-        //private static readonly HttpClient client = new HttpClient();
         static void Main(string[] args)
         {
            var repositories = ProcessRepositories().Result;
@@ -31,10 +30,6 @@ namespace RestClientExample
         }
         private static async Task<List<Repository>> ProcessRepositories()
         {
-            /*var strTask = client.GetStringAsync("https://api.github.com/orgs/dotnet/repos");
-            var msg = await strTask;
-            Write(msg);*/
-
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -47,13 +42,6 @@ namespace RestClientExample
                 var repositories = serializer.ReadObject(await streamtask) as List<Repository>;
                 return repositories;
             }
-
-            /*using (var httpClient = new WebClient())
-            {
-                httpClient.Headers.Add(ReqConstant.UserAgent, ReqConstant.UserAgentValue);
-                var resp = httpClient.DownloadString(ReqConstant.BaseUrl);
-                return resp;
-            }*/
         }
     }
 }
